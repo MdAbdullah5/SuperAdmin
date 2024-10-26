@@ -15,38 +15,35 @@ const lineData = [
 
 // Sample data for Pie and Bar charts
 const pieData = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
+  { name: 'Group A', value: 200 },
+  { name: 'Group B', value: 500 },
+  { name: 'Group C', value: 800 },
   { name: 'Group D', value: 200 },
+
+
 ];
 
 const barData1 = [
-  { name: 'Mobile', value: 2400 },
-  { name: 'Desktop', value: 1398 },
-  { name: 'Tablet', value: 9800 },
+  { name: 'Linux', value: 24000 },
+  { name: 'Mac', value: 13000 },
+  { name: 'IOS', value: 31260 },
+  { name: 'Android', value: 44923 },
+  { name: 'Other', value: 9005 },
+
 ];
 
-const barData2 = [
-  { name: 'SEO', value: 4000 },
-  { name: 'Marketing', value: 2400 },
-  { name: 'Ad Campaigns', value: 1398 },
-];
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-const barColors = ['#8884d8', '#82ca9d', '#ffc658', '#d0ed57'];
-const smallBarColors = ['#FFBB28', '#FF8042', '#0088FE'];
 
-const Dashboard = (props) => {
+const COLORS = ['#1C1C1C99', '#B1E3FF', '#A1E3CB', '#A8C5DA'];
+const smallBarColors = ['#95A4FC', '#BAEDBD', '#1C1C1C', '#B1E3FF', '#A8C5DA', '#A1E3CB'];
+
+const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <main className="main-content">
-
-       
-
         <section className="charts">
           {/* Line Chart */}
-          <div className="chart-container">
+          <div className="chart-container line-chart">
             <h4>Total Users (This Event vs Last Event)</h4>
             <LineChart width={600} height={300} data={lineData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -59,20 +56,21 @@ const Dashboard = (props) => {
             </LineChart>
           </div>
 
-          {/* Pie Chart and Small Bar Chart side by side */}
-          <div className="chart-container" style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
-            <div style={{ width: '48%' }}>
+          {/* Middle section with Pie Chart and Small Bar Chart side by side */}
+          <div className="chart-row">
+            <div className="chart-container">
               <h4>Traffic by Location</h4>
               <PieChart width={400} height={300}>
                 <Pie
                   data={pieData}
                   cx={200}
-                  cy={150}
+                  cy={110}
                   innerRadius={60}
-                  outerRadius={80}
+                  outerRadius={100}
                   fill="#8884d8"
-                  paddingAngle={5}
+                  paddingAngle={2}
                   dataKey="value"
+                  cornerRadius={7}
                 >
                   {pieData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
@@ -82,39 +80,21 @@ const Dashboard = (props) => {
                 <Legend />
               </PieChart>   
             </div>
-    
-            <div style={{ width: '48%' }}>
+
+            <div className="chart-container">
               <h4>Traffic by Device</h4>
               <BarChart width={400} height={300} data={barData1}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
+                <XAxis dataKey= "name" fontSize={12} axisLine={false} />
+                <YAxis axisLine={false} tickFormatter={(value) => `${value / 1000}k`} ticks={[0, 10000, 20000, 30000, 40000, 50000]} />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="value" radius={[10, 10, 0, 0]}>
+                <Bar dataKey="value" barSize={35} radius={[10, 10, 10, 10]}>
                   {barData1.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={smallBarColors[index % smallBarColors.length]} />
                   ))}
                 </Bar>
               </BarChart>
             </div>
-          </div>
-
-          {/* Large Bar Chart below the Pie and Small Bar Chart */}
-          <div className="chart-container" style={{ marginTop: '20px' }}>
-            <h4>Marketing & SEO</h4>
-            <BarChart width={820} height={400} data={barData2}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="value" fill="#82ca9d" radius={[10, 10, 0, 0]}>
-                {barData2.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={barColors[index % barColors.length]} />
-                ))}
-              </Bar>
-            </BarChart>
           </div>
         </section>
       </main>
