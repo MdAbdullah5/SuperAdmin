@@ -15,6 +15,9 @@ import Forms from './components/Forms/Forms';
 import Account from './components/Account/Account';
 import Dashboard from './components/Dashboard/Dashboard';
 import EventOrganizersUpdate from './components/EventOrganizersUpdate/EventOrganizersUpdate';
+import EventStatusUpdate from './components/EventStatusUpdate/EventStatusUpdate';
+import FormsUpdate from './components/FormsUpdate/FormsUpdate';
+
 
 function App() {
   const registrationData = [
@@ -117,6 +120,8 @@ function App() {
             <Route path="/admin/forms" element={<Forms events={eventData1} />} /> {/* New Route */}
             <Route path="/admin/accounts" element={<Account />} /> {/* New Route */}
             <Route path="/admin/event_organizers/update" element={<EventOrganizersUpdate/>} /> {/* New Route */}
+            <Route path="/admin/event_status/update" element={<EventStatusUpdate/>} /> {/* New Route */}
+            <Route path="/admin/forms/update" element={<FormsUpdate/>} /> {/* New Route */}
 
             
 

@@ -1,8 +1,17 @@
 import React , { useState } from 'react';
 import './Forms.css';
+import { useNavigate } from 'react-router-dom';
 
 
 function Forms({ events }) {
+
+  const navigate = useNavigate();
+
+  const formsUpdate = (eventId) => {
+    navigate(`/admin/forms/update`); // Redirect to a specific event update page
+  };
+
+
   const [newEventName, setNewEventName] = useState('');
 
   const handleInputChange = (event) => {
@@ -69,7 +78,7 @@ function Forms({ events }) {
                 </div>
               </td>
               <td className="actions">
-                <span className="edit-icon">✏️</span>
+                <span className="edit-icon"  onClick={formsUpdate}>✏️</span>
               </td>
             </tr>
           ))}

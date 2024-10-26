@@ -1,7 +1,15 @@
 import React from 'react';
 import './EventStatus.css';
+import { useNavigate } from 'react-router-dom';
 
 function EventStatus({ events }) {
+
+  const navigate = useNavigate();
+
+  const redirectstatusUpdate = (eventId) => {
+    navigate(`/admin/event_status/update`); // Redirect to a specific event update page
+  };
+
   return (
     <div className="main-content">
       <div className="header">
@@ -34,7 +42,7 @@ function EventStatus({ events }) {
                 </div>
               </td>
               <td className="actions">
-                <span className="edit-icon">✏️</span>
+                <span className="edit-icon" onClick={redirectstatusUpdate}>✏️</span>
               </td>
             </tr>
           ))}
