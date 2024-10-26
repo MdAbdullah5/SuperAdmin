@@ -1,0 +1,97 @@
+.account-container {
+    margin-top:25% ;
+    margin-left: 50%;
+    display: flex;
+    height: auto;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+  
+  .sidebar-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .sidebar ul li.active {
+    background-color: #e0e0e0;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    position: relative;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .search-bar i {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+  
+  .notifications {
+    position: relative;
+  }
+  
+  .notifications i {
+    position: relative;
+  }
+  
+  .notifications::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -5px;
+    width: 8px;
+    height: 8px;
+    background-color: red;
+    border-radius: 50%;
+  }
+  
+  .account-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .account-actions button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .logout-btn{
+    margin-right: 10px;
+    padding: auto;
+
+  }

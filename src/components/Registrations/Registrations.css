@@ -1,0 +1,70 @@
+.main-content {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .header input[type="search"] {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table th,
+  table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .mode {
+    display: flex;
+    align-items: center;
+  }
+  
+  .onsite,
+  .online,
+  .uploaded {
+    display: flex;
+    align-items: center;
+  }
+  
+  .onsite-icon,
+  .online-icon,
+  .uploaded-icon {
+    margin-right: 5px;
+  }
+  
+  .onsite-icon {
+    color: #4caf50;
+  }
+  
+  .online-icon {
+    color: #2196f3;
+  }
+  
+  .uploaded-icon {
+    color: #ff9800;
+  }
+  
+  .actions {
+    cursor: pointer;
+  }
+  
