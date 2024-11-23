@@ -115,7 +115,7 @@ function App() {
               }
             />
             <Route path="/admin/event_organizers" element={<EventOrganizers events={eventData} />} /> {/* New Route */}
-            <Route path="/admin/event_status" element={<EventStatus events={eventData1} />} /> {/* New Route */}
+            <Route path="/admin/event_status" element={<EventStatus />} /> {/* New Route */}
             <Route path="/admin/registrations" element={<Registrations registrations={registrationData} />} /> {/* New Route */}
             <Route path="/admin/forms" element={<Forms events={eventData1} />} /> {/* New Route */}
             <Route path="/admin/accounts" element={<Account />} /> {/* New Route */}

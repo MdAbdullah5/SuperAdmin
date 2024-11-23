@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './EventStatus.css';
 import { useNavigate } from 'react-router-dom';
 
-function EventStatus({ events }) {
-
+function EventStatus() {
   const navigate = useNavigate();
+  const [events, setEvents] = useState([]);
 
-  const redirectstatusUpdate = (eventId) => {
-    navigate(`/admin/event_status/update`); // Redirect to a specific event update page
+  // Fetch event status data from FastAPI
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const response = await fetch('http://127.0.0.1:8000/admin/event_status');
+      const data = await response.json();
+      setEvents(data);
+    };
+
+    fetchEvents();
+  }, []);
+
+  const redirectstatusUpdate = async (eventId) => {
+    // Fetch event details from FastAPI for the specific event
+    const response = await fetch(`http://127.0.0.1:8000/admin/event_status`);
+    const eventData = await response.json();
+
+    // Navigate to the update page and pass the event data
+    navigate(`/admin/event_status/update`, { state: eventData });
   };
 
   return (
@@ -42,7 +58,7 @@ function EventStatus({ events }) {
                 </div>
               </td>
               <td className="actions">
-                <span className="edit-icon" onClick={redirectstatusUpdate}>✏️</span>
+                <span className="edit-icon" onClick={() => redirectstatusUpdate(event.id)}>✏️</span>
               </td>
             </tr>
           ))}
